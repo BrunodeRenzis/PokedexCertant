@@ -26,8 +26,7 @@ public class Ability implements Serializable {
 		this.abilityId = abilityId;
 		this.pokemonId = pokemonId;
 		this.typeId = typeId;
-		this.abilityDesc = abilityDesc;
-		
+		this.abilityDesc = abilityDesc;		
 	}
 
 	@Id

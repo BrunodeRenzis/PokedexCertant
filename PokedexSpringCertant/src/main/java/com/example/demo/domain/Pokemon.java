@@ -43,9 +43,9 @@ public class Pokemon implements Serializable {
 
 
 
-	/*
+	
 	public Pokemon(@NotEmpty String pokemonName, int pokemonLevelFound, int pokemonTypeId, int userId,
-			List<Evolution> evolutions, List<Ability> abilities, List<Type> types, Usuario usuario) {
+			List<Evolution> evolutions, List<Ability> abilities, List<Type> types/*, Usuario usuario*/) {
 		super();
 		this.pokemonName = pokemonName;
 		this.pokemonLevelFound = pokemonLevelFound;
@@ -54,11 +54,11 @@ public class Pokemon implements Serializable {
 		this.types = types;
 		this.evolutions = evolutions;
 		this.abilities = abilities;
-		this.usuario = usuario;
+		//this.usuario = usuario;
 	}
 
 	public Pokemon(long pokemonId, @NotEmpty String pokemonName, int pokemonLevelFound, int pokemonTypeId, int userId,
-			List<Ability> abilities, List<Type> types, Usuario usuario) {
+			List<Ability> abilities, List<Type> types/*, Usuario usuario*/) {
 		super();
 		this.pokemonId = pokemonId;
 		this.pokemonName = pokemonName;
@@ -67,11 +67,11 @@ public class Pokemon implements Serializable {
 		this.userId = userId;
 		this.types = types;
 		this.abilities = abilities;
-		this.usuario = usuario;
+		//this.usuario = usuario;
 	}
 
 	public Pokemon(long pokemonId, @NotEmpty String pokemonName, int pokemonLevelFound, int pokemonTypeId, int userId,
-			List<Evolution> evolutions, List<Ability> abilities, List<Type> types, Usuario usuario) {
+			List<Evolution> evolutions, List<Ability> abilities, List<Type> types/*, Usuario usuario*/) {
 		super();
 		this.pokemonId = pokemonId;
 		this.pokemonName = pokemonName;
@@ -81,9 +81,9 @@ public class Pokemon implements Serializable {
 		this.types = types;
 		this.evolutions = evolutions;
 		this.abilities = abilities;
-		this.usuario = usuario;
+		//this.usuario = usuario;
 	}
-	*/
+	
 
 	private static final long serialVersionUID = 3L;
 	@Id
