@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Datos del Pokemon</title>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+	<h2>[[#{pokemon.formulario}]]</h2>
+	<a th:href="@{/}">[[#{accion.regresar}]]</a>
+	<br/>
+	<br/>
+	<!-- Se le agrega la acción de guardar mediante un método post -->
+	
+	<article th:utext="${pokemon.pokemonName}"></article>
+	<article th:utext="${pokemon.pokemonLevelFound}"></article>
+	<article th:utext="${pokemon.types}"></article>
+	<article th:utext="${pokemon.evolutions}"></article>
+	
+	<!-- FALTAN TRAER ACÁ CONSULTAS DE OTRAS TABLAS -->
+	<footer th:replace="/layout/plantilla :: footer"></footer>
+</body>
+</html>

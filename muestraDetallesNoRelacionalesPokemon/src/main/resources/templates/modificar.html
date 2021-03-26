@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Datos del Pokemon</title>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+	<h2>[[#{pokemon.formulario}]]</h2>
+	<a th:href="@{/}">[[#{accion.regresar}]]</a>
+	<br/>
+	<br/>
+	<!-- Se le agrega la acción de guardar mediante un método post -->
+	<form th:action="@{/guardar}" method="post" th:object="${pokemon}">
+		<input type="hidden" name="pokemonId" th:field="*{pokemonId}"/>
+		<label for="pokemonName">[[#{pokemon.pokemonName}]]:</label>
+		<input type="text" name="pokemonName" th:field="*{pokemonName}"/>
+		<span th:if="${#fields.hasErrors('pokemonName')}" th:errors="*{pokemonName}"></span>
+		<br/>
+		
+		<br/>
+		
+		<label for="pokemonLevelFound">[[#{pokemon.pokemonLevelFound}]]:</label>
+		<input type="text" name="pokemonLevelFound" th:field="*{pokemonLevelFound}"/>
+		<span th:if="${#fields.hasErrors('pokemonLevelFound')}" th:errors="*{pokemonLevelFound}"></span>
+		<br/>
+		 
+		<label for="userId">[[#{pokemon.userId}]]:</label>
+		<input type="text" name="userId" th:field="*{userId}"/>
+		<span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></span>
+		<br/>
+		 
+
+		<input type="submit" name="guardar" th:value="#{accion.guardar}"/>
+	</form> 
+	<footer th:replace="/layout/plantilla :: footer"></footer>
+</body>
+</html>
