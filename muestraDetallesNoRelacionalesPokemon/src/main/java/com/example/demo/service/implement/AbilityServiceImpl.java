@@ -3,12 +3,14 @@ package com.example.demo.service.implement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dao.IAbilityDAO;
 import com.example.demo.domain.Ability;
 import com.example.demo.service.IAbilityService;
 
+@Service
 public class AbilityServiceImpl implements IAbilityService{
 
 	@Autowired
