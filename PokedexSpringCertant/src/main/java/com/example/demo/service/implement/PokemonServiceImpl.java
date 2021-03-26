@@ -18,10 +18,10 @@ public class PokemonServiceImpl implements IPokemonService{
 	
 	@Autowired
 	private AbilityServiceImpl abilityService;
-	/*
+	
 	@Autowired
 	private EvolutionServiceImpl evolutionService;
-	*/
+	
 	@Autowired
 	private TypeServiceImpl typeService;
 	
@@ -53,7 +53,7 @@ public class PokemonServiceImpl implements IPokemonService{
 	@Transactional(readOnly=true)
 	public Pokemon encontrarPokemonCompleto(Pokemon pokemon) {
 		Pokemon pokemonCompleto = pokemonDAO.findById(pokemon.getPokemonId()).orElse(null);
-		pokemonCompleto.setTypes(typeService.tiposDeUnPokemon(pokemon.getPokemonId()));
+		//pokemonCompleto.setTypes(typeService.tiposDeUnPokemon(pokemon.getPokemonId()));
 		//pokemonCompleto.setEvolutions(evolutionService.evolucionesDeUnPokemon(pokemon.getPokemonId()));
 		//pokemonCompleto.setAbilities(abilityService.habilidadesDeUnPokemon(pokemon.getPokemonId()));
 		return pokemonCompleto;

@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -103,19 +104,26 @@ public class Pokemon implements Serializable {
 	@Column(name = "userId")
 	private int userId;
 
+	//SE SIGUE DESDE ACÁ, CON POKEMON Y EVOLUCIONES 
+	
 	@Transient
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="pokemonId")
-	private List<Evolution> evolutions;
+	//@OneToMany(cascade = CascadeType.ALL)
+	//@JoinTable(name="evolution")
+	//@JoinColumn(name="pokemonId")
+	private List<Evolution> evolutions = new ArrayList<Evolution>();
 
 	@Transient
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="pokemonId")
-	private List<Ability> abilities;
+	//@OneToMany(cascade = CascadeType.ALL)
+	//@JoinTable(name="ability")
+	//@JoinColumn(name="pokemonId")
+	private List<Ability> abilities = new ArrayList<Ability>();
 
 	@Transient
-	@ManyToMany()
-	private List<Type> types;
+	/*@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinTable(name="pokemontype",
+	joinColumns = {@JoinColumn(name="pokemonId")},
+	inverseJoinColumns = {@JoinColumn(name="typeId")})*/
+	private List<Type> types = new ArrayList<Type>();
 
 
 	/*
