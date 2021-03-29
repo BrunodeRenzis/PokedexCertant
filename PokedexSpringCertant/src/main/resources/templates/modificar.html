@@ -25,6 +25,11 @@
 		<span th:if="${#fields.hasErrors('pokemonLevelFound')}" th:errors="*{pokemonLevelFound}"></span>
 		<br/>
 		 
+		 <label for="pokemonTypeId">[[#{pokemon.pokemonTypeId}]]:</label>
+		<input type="text" name="pokemonTypeId" th:field="*{pokemonTypeId}"/>
+		<span th:if="${#fields.hasErrors('pokemonTypeId')}" th:errors="*{pokemonTypeId}"></span>
+		<br/>
+		 
 		<label for="userId">[[#{pokemon.userId}]]:</label>
 		<input type="text" name="userId" th:field="*{userId}"/>
 		<span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></span>
