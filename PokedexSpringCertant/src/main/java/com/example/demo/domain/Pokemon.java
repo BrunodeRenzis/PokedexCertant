@@ -124,11 +124,12 @@ public class Pokemon implements Serializable {
 	joinColumns = {@JoinColumn(name="pokemonId")},
 	inverseJoinColumns = {@JoinColumn(name="typeId")})*/
 	private List<Type> types = new ArrayList<Type>();
-
+	
+	
+	private Usuario usuario;
 
 	/*
 		@OneToOne
 		@JoinColumn(name = "userId")
-		private Usuario usuario;
 	*/
 }

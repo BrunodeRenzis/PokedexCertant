@@ -6,8 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.example.demo.domain.Ability;
+import com.example.demo.domain.Evolution;
 
 public interface IAbilityDAO extends CrudRepository<Ability,Long> {
-	@Query(value="SELECT pokemon.pokemonName, ability.abilityDesc, type.typeDescription FROM pokemon INNER JOIN ability ON pokemon.pokemonId=? AND pokemon.pokemonId=ability.pokemonId INNER JOIN pokemon.type ON ability.typeId=type.typeId", nativeQuery=true)
-	List<Ability> habilidadesDeUnPokemon(long pokemonId);
+	/*@Query(value="SELECT pokemon.pokemonName, ability.abilityDesc, type.typeDescription FROM pokemon INNER JOIN ability ON pokemon.pokemonId=? AND pokemon.pokemonId=ability.pokemonId INNER JOIN pokemon.type ON ability.typeId=type.typeId", nativeQuery=true)
+	List<Ability> habilidadesDeUnPokemon(long pokemonId);*/
+	
+	List<Ability> findByAbilityId(long abilityId);
 }

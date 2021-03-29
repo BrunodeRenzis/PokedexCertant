@@ -45,7 +45,7 @@ public class EvolutionServiceImpl implements IEvolutionService{
 	@Override
 	@Transactional
 	public List<Evolution> evolucionesDeUnPokemon(long pokemonId){
-		return evolutionDAO.evolucionesDeUnPokemon(pokemonId);
+		return evolutionDAO.findByPokemonId(pokemonId);
 	}
 
 }

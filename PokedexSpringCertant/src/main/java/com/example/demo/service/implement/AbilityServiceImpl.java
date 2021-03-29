@@ -43,8 +43,8 @@ public class AbilityServiceImpl implements IAbilityService{
 	
 	@Override
 	@Transactional
-	public List <Ability> habilidadesDeUnPokemon(long pokemonId){
-		return abilityDAO.habilidadesDeUnPokemon(pokemonId);
+	public List <Ability> habilidadesDeUnPokemon(long abilityId){
+		return abilityDAO.findByAbilityId(abilityId);
 	}
 
 }
