@@ -106,17 +106,12 @@ public class Pokemon implements Serializable {
 
 	//SE SIGUE DESDE ACÁ, CON POKEMON Y EVOLUCIONES 
 	
-	@Transient
-	//@OneToMany(cascade = CascadeType.ALL)
-	//@JoinTable(name="evolution")
-	//@JoinColumn(name="pokemonId")
-	private List<Evolution> evolutions = new ArrayList<Evolution>();
+	@OneToMany(mappedBy="pokemonId")
+	private List<Evolution> evolutions;
 
-	@Transient
-	//@OneToMany(cascade = CascadeType.ALL)
-	//@JoinTable(name="ability")
-	//@JoinColumn(name="pokemonId")
-	private List<Ability> abilities = new ArrayList<Ability>();
+
+	@OneToMany(mappedBy="pokemonId")
+	private List<Ability> abilities;
 
 	@Transient
 	/*@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
@@ -125,7 +120,7 @@ public class Pokemon implements Serializable {
 	inverseJoinColumns = {@JoinColumn(name="typeId")})*/
 	private List<Type> types = new ArrayList<Type>();
 	
-	
+	@Transient
 	private Usuario usuario;
 
 	/*

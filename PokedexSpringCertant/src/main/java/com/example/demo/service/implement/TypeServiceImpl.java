@@ -43,8 +43,8 @@ public class TypeServiceImpl implements ITypeService{
 	
 	@Override
 	@Transactional
-	public List <Type> tiposDeUnPokemon(long pokemonId){
-		return typeDAO.findByTypeId(pokemonId);
+	public List <Type> tiposDeUnPokemon(long typeId){
+		return typeDAO.findByTypeId(typeId);
 	}
 	
 }

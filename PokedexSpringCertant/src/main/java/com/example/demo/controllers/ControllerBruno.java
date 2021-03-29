@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.service.implement.EvolutionServiceImpl;
+import com.example.demo.service.implement.PokemonServiceImpl;
 @RestController
 @RequestMapping("/")
 public class ControllerBruno {
@@ -13,12 +14,15 @@ public class ControllerBruno {
 	@Autowired
 	EvolutionServiceImpl unaEvolucion;
 	
+	@Autowired
+	PokemonServiceImpl pokemonServiceImpl;
+	
 	public ControllerBruno(){
 		
 	}
 	
 	@GetMapping(value="/bruno")
 	public void probarEvolucion() {
-		unaEvolucion.evolucionesDeUnPokemon(1);
+		pokemonServiceImpl.encontrarPokemonCompleto(null);
 	}
 }
