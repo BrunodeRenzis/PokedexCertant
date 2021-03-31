@@ -32,59 +32,23 @@ public class Pokemon implements Serializable {
 	}
 	
 	
-
-	public Pokemon(long pokemonId, @NotEmpty String pokemonName, int pokemonLevelFound, int pokemonTypeId, int userId) {
-		super();
-		this.pokemonId = pokemonId;
-		this.pokemonName = pokemonName;
-		this.pokemonLevelFound = pokemonLevelFound;
-		this.pokemonTypeId = pokemonTypeId;
-		this.userId = userId;
-	}
-
-
-
 	
-	public Pokemon(@NotEmpty String pokemonName, int pokemonLevelFound, int pokemonTypeId, int userId,
-			List<Evolution> evolutions, List<Ability> abilities, List<Type> types/*, Usuario usuario*/) {
-		super();
-		this.pokemonName = pokemonName;
-		this.pokemonLevelFound = pokemonLevelFound;
-		this.pokemonTypeId = pokemonTypeId;
-		this.userId = userId;
-		this.types = types;
-		this.evolutions = evolutions;
-		this.abilities = abilities;
-		//this.usuario = usuario;
-	}
 
 	public Pokemon(long pokemonId, @NotEmpty String pokemonName, int pokemonLevelFound, int pokemonTypeId, int userId,
-			List<Ability> abilities, List<Type> types/*, Usuario usuario*/) {
+			List<Evolution> evolutions, List<Ability> abilities, List<Type> types) {
 		super();
 		this.pokemonId = pokemonId;
 		this.pokemonName = pokemonName;
 		this.pokemonLevelFound = pokemonLevelFound;
 		this.pokemonTypeId = pokemonTypeId;
 		this.userId = userId;
-		this.types = types;
-		this.abilities = abilities;
-		//this.usuario = usuario;
-	}
-
-	public Pokemon(long pokemonId, @NotEmpty String pokemonName, int pokemonLevelFound, int pokemonTypeId, int userId,
-			List<Evolution> evolutions, List<Ability> abilities, List<Type> types/*, Usuario usuario*/) {
-		super();
-		this.pokemonId = pokemonId;
-		this.pokemonName = pokemonName;
-		this.pokemonLevelFound = pokemonLevelFound;
-		this.pokemonTypeId = pokemonTypeId;
-		this.userId = userId;
-		this.types = types;
 		this.evolutions = evolutions;
 		this.abilities = abilities;
-		//this.usuario = usuario;
+		this.types = types;
 	}
-	
+
+
+
 
 	private static final long serialVersionUID = 3L;
 	@Id
@@ -103,8 +67,6 @@ public class Pokemon implements Serializable {
 
 	@Column(name = "userId")
 	private int userId;
-
-	//SE SIGUE DESDE ACÁ, CON POKEMON Y EVOLUCIONES 
 	
 	@OneToMany(mappedBy="pokemonId")
 	private List<Evolution> evolutions;
@@ -114,17 +76,8 @@ public class Pokemon implements Serializable {
 	private List<Ability> abilities;
 
 	@Transient
-	/*@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinTable(name="pokemontype",
-	joinColumns = {@JoinColumn(name="pokemonId")},
-	inverseJoinColumns = {@JoinColumn(name="typeId")})*/
-	private List<Type> types = new ArrayList<Type>();
+	private List<Type> types;
 	
-	@Transient
-	private Usuario usuario;
+	
 
-	/*
-		@OneToOne
-		@JoinColumn(name = "userId")
-	*/
 }

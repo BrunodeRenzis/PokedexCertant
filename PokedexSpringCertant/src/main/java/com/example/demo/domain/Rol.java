@@ -23,10 +23,10 @@ public class Rol implements Serializable{
 		
 	}
 	
-	public Rol(long idRol, @NotEmpty String username, long userId) {
+	public Rol(long idRol, @NotEmpty String userRol, long userId) {
 		super();
 		this.idRol = idRol;
-		this.username = username;
+		this.userRol = userRol;
 		this.userId = userId;
 	}
 	
@@ -36,8 +36,8 @@ public class Rol implements Serializable{
 	private long idRol;
 	
 	@NotEmpty
-	@Column(name="username")
-	private String username;
+	@Column(name="userRol")
+	private String userRol;
 	
 	@Column(name="userId")
 	private long userId;

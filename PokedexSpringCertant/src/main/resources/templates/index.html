@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<head th:replace="layout/plantilla :: head">
 <title>Insert title here</title>
 <meta charset="UTF-8">
 </head>
 <body>
 	<header th:replace="layout/plantilla :: header"></header>
+	<section th:replace="layout/botonesAgregar :: botonesAgregar"></section>
+	<section th:replace="layout/listadoPokemon :: listadoPokemon"></section>
+	<!--  
+	<section th:replace="layout/agregarCliente :: agregarCliente"></section>
+	-->
+	<footer th:replace="/layout/plantilla :: footer"></footer>
+	
+	<!-- SACAR DE ACA Y PASAR A LISTADO POKEMON -->
 	<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">[[#{pokemon.crear}]]</a>
 	<br />
 	<div th:if="${listaPokemon != null and  !listaPokemon.empty}">
@@ -32,6 +40,5 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<div th:if="${listaPokemon == null or  listaPokemon.empty}">
 		[[#{pokemon.lista-vacia}]]
 	</div>
-	<footer th:replace="/layout/plantilla :: footer"></footer>
 </body>
 </html>

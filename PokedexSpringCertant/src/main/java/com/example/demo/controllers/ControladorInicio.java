@@ -30,6 +30,7 @@ public class ControladorInicio {
 		return "index";
 	}
 	
+	
 	@GetMapping("/agregar")
 	public String agregar(Pokemon pokemon) {
 		return "modificar";
@@ -56,6 +57,7 @@ public class ControladorInicio {
 		pokemonService.eliminar(pokemon);
 		return "redirect:/";
 	}
+	
 	
 	@GetMapping("/ver/{pokemonId}")
 	public String ver(Pokemon pokemon,Model model) {

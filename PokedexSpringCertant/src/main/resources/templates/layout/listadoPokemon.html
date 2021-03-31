@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head th:replace="layout/plantilla :: head">
+	<title>Listado Pokemon</title>
+	<meta charset="UTF-8"/>
+	</head>
+	<body>
+		 <section th:fragment="listadoPokemon" id="pokemon">
+		 	<div class="container">
+		 		<div class="row">
+		 			<div class="col-md-9">
+		 				<div class="card">
+		 					<div class="card-header">
+		 						<h4>[[#{pokemon.titulo-list}]]</h4>
+		 					</div>
+		 					<div th:if="${listaPokemon != null and  !listaPokemon.empty}">
+		 						<table class="table table-stryped">
+		 							<thead class="thead-dark">
+		 								<tr>
+		 									<!-- <th th:text="#{pokemon.pokemonType}">Tipo</th> -->
+		 									<th>[[#{pokemon.pokemonName}]]</th>
+											<th>[[#{pokemon.pokemonLevelFound}]]</th>
+											<th>[[#{pokemon.userId}]]</th>
+											<th>[[#{accion.editar}]]</th>
+											<th>[[#{accion.eliminar}]]</th>
+											<th>[[#{accion.ver}]]</th>											
+		 								</tr>
+		 							</thead>
+		 							<tbody>
+		 								<tr th:each="pokemon : ${listaPokemon}">
+		 									<td>[[${pokemon.pokemonName}]]</td>
+		 									<td>[[${pokemon.pokemonLevelFound}]]</td>
+		 									<td>[[${pokemon.userId}]]</td>
+		 									<!--<td>[[${pokemon.pokemonTypeId}]]</td>-->
+		 									<td> 
+			 									<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/} + ${pokemon.pokemonId}" class="btn btn-secondary">
+													<i class="fas fa-angle-double-right"></i>[[#{accion.editar}]]		 									
+												</a>
+		 									</td>
+											<td>
+												<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminar/} + ${pokemon.pokemonId}" class="btn btn-danger">
+													<i class="fas fa-angle-double-right"></i>[[#{accion.eliminar}]]		 									
+												</a>											
+											</td>
+											
+											<td>
+												<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/ver/} + ${pokemon.pokemonId}" class="btn btn-success">
+													<i class="fas fa-angle-double-right"></i>[[#{accion.ver}]]		 									
+												</a>											
+											</td>											
+		 								</tr>
+		 							</tbody>
+		 						</table>
+		 					</div>
+		 					<div class="text-center p-2" th:if="${listaPokemon == null and listaPokemon.empty}">
+		 						<span th:text="#{pokemon.lista-vacia}"></span>
+		 					</div>
+		 				</div>
+		 			</div>
+		 		</div>
+		 	</div>
+		 </section>
+	</body>
+</html>
