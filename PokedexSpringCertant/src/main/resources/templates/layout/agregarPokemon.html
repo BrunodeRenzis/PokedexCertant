@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-	<head th:replace="layout/plantilla :: head">
-		<title>Agregar Pokemon</title>
-		<meta charset="UTF-8" />
-	</head>
-	
-	<body>
-		<section th:fragment="agregarPokemon">
-			<div id="agregarPokemon" class="modal fade">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header bg-info text-white">
-							<h5 class="modal-title" th:text="#{accion.agregar}">Agregar cliente</h5>
-							<button class="close" data-dismiss="modal">
-								<span>&times;</span>
-							</button>
-						</div>
+<head th:replace="layout/plantilla :: head">
+<title>Agregar Pokemon</title>
+<meta charset="UTF-8" />
+</head>
+
+<body>
+	<section th:fragment="agregarPokemon">
+		<div id="agregarPokemon" class="modal fade">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header bg-info text-white">
+						<h5 class="modal-title" th:text="#{accion.agregar}">Agregar
+							cliente</h5>
+						<button class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
 					</div>
+					<form th:action="@{/guardar}" th:object="${pokemon}" method="POST"
+						class="was-validated">
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="pokemonName" th:text="#{pokemon.pokemonName}"></label>
+								<input type="text" class="form-control" name="pokemonName"
+									required="true">
+							</div>
+
+							<div class="form-group">
+								<label for="pokemonLevelFound"
+									th:text="#{pokemon.pokemonLevelFound}"></label> <input
+									type="text" class="form-control" name="pokemonLevelFound"
+									required="true">
+							</div>
+
+							<div class="form-group">
+								<label for="pokemonTypeId" th:text="#{pokemon.pokemonTypeId}"></label>
+								<input type="text" class="form-control" name="pokemonTypeId"
+									required="true">
+							</div>
+
+							<div class="form-group">
+								<label for="userId" th:text="#{pokemon.userId}"></label> <input
+									type="text" class="form-control" name="userId" required="true">
+							</div>
+
+							<div class="modal-footer">
+								<button class="btn btn-primary" type="submit"
+									th:text="#{accion.guardar}"></button>
+							</div>
+
+						</div>
+
+					</form>
 				</div>
 			</div>
-		</section>
-	</body>
+		</div>
+	</section>
+</body>
 </html>

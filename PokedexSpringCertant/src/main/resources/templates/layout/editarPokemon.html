@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/plantilla ::head">
+<meta charset="UTF-8">
+<title>Editar Pokemon</title>
+</head>
+<body>
+	<section th:fragment="editarPokemon">
+		<form th:action="@{/guardar}" th:object="${pokemon}" method="POST"
+			class="was-validated">
+			<input type="hidden" name="pokemonId" th:field="*{pokemonId}" />
+			<section th:replace="layout/botonesEditar :: botonesEditar"></section>
+			<div id="details">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="card">
+								<div class="card-header">
+									<h4>[[#{accion.editar}]]</h4>
+								</div>
+								<div class="card-body">
+									<div class="form-group">
+										<label for="pokemonName">[[pokemon.pokemonName]]</label> <input
+											type="text" class="form-control" name="pokemonName"
+											required="true" th:field="*{pokemonName}" />
+
+									</div>
+
+									<div class="form-group">
+										<label for="pokemonLevelFound">[[pokemon.pokemonLevelFound]]</label> <input
+											type="text" class="form-control" name="pokemonLevelFound"
+											required="true" th:field="*{pokemonLevelFound}" />
+
+									</div>
+
+									<div class="form-group">
+										<label for="pokemonTypeId">[[pokemon.pokemonTypeId]]</label> <input
+											type="text" class="form-control" name="pokemonTypeId"
+											required="true" th:field="*{pokemonTypeId}" />
+
+									</div>
+
+									<div class="form-group">
+										<label for="pokemonName">[[pokemon.userId]]</label> <input
+											type="text" class="form-control" name="userId"
+											required="true" th:field="*{userId}" />
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</section>
+</body>
