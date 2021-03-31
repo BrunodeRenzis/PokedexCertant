@@ -14,6 +14,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		 					<div class="card-header">
 		 						<h4>[[#{pokemon.titulo-list}]]</h4>
 		 					</div>
+		 					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">[[#{pokemon.crear}]]</a>
 		 					<div th:if="${listaPokemon != null and  !listaPokemon.empty}">
 		 						<table class="table table-stryped">
 		 							<thead class="thead-dark">

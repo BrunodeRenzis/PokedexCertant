@@ -8,37 +8,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
 	<header th:replace="layout/plantilla :: header"></header>
 	<section th:replace="layout/botonesAgregar :: botonesAgregar"></section>
-	<section th:replace="layout/listadoPokemon :: listadoPokemon"></section>
-	<!--  
-	<section th:replace="layout/agregarCliente :: agregarCliente"></section>
-	-->
+	<section th:replace="layout/agregarPokemon :: agregarPokemon"></section>
+	<section th:replace="layout/listadoPokemon :: listadoPokemon"></section> 
 	<footer th:replace="/layout/plantilla :: footer"></footer>
-	
-	<!-- SACAR DE ACA Y PASAR A LISTADO POKEMON -->
-	<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">[[#{pokemon.crear}]]</a>
-	<br />
-	<div th:if="${listaPokemon != null and  !listaPokemon.empty}">
-		<table border="1">
-			<tr>
-				<th>[[#{pokemon.pokemonName}]]</th>
-				<th>[[#{pokemon.pokemonLevelFound}]]</th>
-				<th>[[#{pokemon.userId}]]</th>
-				<th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.editar}]]</th>
-				<th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
-				<th>[[#{accion.ver}]]</th>
-			</tr>
-			<tr th:each="pokemon: ${listaPokemon}">
-				<td th:text="${pokemon.pokemonName}"></td>
-				<td th:text="${pokemon.pokemonLevelFound}"></td>
-				<td th:text="${pokemon.userId}"></td>
-				<td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/editar/} + ${pokemon.pokemonId}">[[#{accion.editar}]]</a></td>
-				<td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/eliminar/} + ${pokemon.pokemonId}">[[#{accion.eliminar}]]</a></td>
-				<td> <a th:href="@{/ver/} + ${pokemon.pokemonId}">[[#{accion.ver}]]</a></td>
-			</tr>
-		</table>
-	</div>
-	<div th:if="${listaPokemon == null or  listaPokemon.empty}">
-		[[#{pokemon.lista-vacia}]]
-	</div>
 </body>
 </html>

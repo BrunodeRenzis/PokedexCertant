@@ -27,6 +27,10 @@ public class ControladorInicio {
 		log.info("Ejecutando el controlador Spring MVC");
 		log.info("Usuario que ha hecho login: "+user);
 		model.addAttribute("listaPokemon", listaPokemon);
+		/*var tipos = pokemonService.obtenerUsuario();
+		model.addAttribute("tipos",tipos);*/
+		/*var usuario = pokemonService.obtenerUsuario();
+		model.addAttribute("usuario",usuario);*/
 		return "index";
 	}
 	
