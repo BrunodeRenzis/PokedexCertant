@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.domain.Pokemon;
 import com.example.demo.service.IPokemonService;
+import com.example.demo.service.implement.AbilityServiceImpl;
+import com.example.demo.service.implement.EvolutionServiceImpl;
 import com.example.demo.service.implement.PokemonServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,12 +23,18 @@ import lombok.extern.slf4j.Slf4j;
 public class ControladorInicio {
 	@Autowired
 	private PokemonServiceImpl pokemonService;
+	@Autowired
+	private EvolutionServiceImpl evolutionService;
+	@Autowired
+	private AbilityServiceImpl abilityServiceImpl;
+	
 	@GetMapping("/")
 	public String inicio(Model model,@AuthenticationPrincipal User user) {
 		var listaPokemon = pokemonService.listarPokemon();
 		log.info("Ejecutando el controlador Spring MVC");
 		log.info("Usuario que ha hecho login: "+user);
 		model.addAttribute("listaPokemon", listaPokemon);
+		
 		/*var tipos = pokemonService.obtenerUsuario();
 		model.addAttribute("tipos",tipos);*/
 		/*var usuario = pokemonService.obtenerUsuario();

@@ -25,8 +25,6 @@ public class PokemonServiceImpl implements IPokemonService{
 	@Autowired
 	private TypeServiceImpl typeService;
 	
-	
-	
 	@Override
 	@Transactional(readOnly=true)
 	public List<Pokemon> listarPokemon() {
