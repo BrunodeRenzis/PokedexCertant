@@ -31,8 +31,7 @@ public class ControladorInicio {
 	@GetMapping("/")
 	public String inicio(Model model,@AuthenticationPrincipal User user) {
 		var listaPokemon = pokemonService.listarPokemon();
-		log.info("Ejecutando el controlador Spring MVC");
-		log.info("Usuario que ha hecho login: "+user);
+		
 		model.addAttribute("listaPokemon", listaPokemon);
 		
 		/*var tipos = pokemonService.obtenerUsuario();

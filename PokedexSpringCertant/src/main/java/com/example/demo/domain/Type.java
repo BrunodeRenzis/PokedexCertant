@@ -24,9 +24,9 @@ public class Type implements Serializable {
 
 	}
 
-	public Type(long typeId, @NotNull String typeDescription, long pokemonId) {
+	public Type(long typeId, @NotNull String typeDescription, long pokemonTypeId) {
 		super();
-		this.typeId = typeId;
+		this.pokemonTypeId = pokemonTypeId;
 		this.typeDescription = typeDescription;
 		
 	}
@@ -34,15 +34,16 @@ public class Type implements Serializable {
 	private static final long serialVersionUID = 5L;
 	@Id
 	@GeneratedValue()
-	@Column(name = "typeId")
-	private long typeId;
+	@Column(name = "pokemonTypeId")
+	private long pokemonTypeId;
 
 	@NotNull
 	@Column(name = "typeDescription")
 	private String typeDescription;
 	
-	//@ManyToMany(mappedBy="types",fetch=FetchType.EAGER)
-	//private List<Pokemon> pokemonList = new ArrayList<Pokemon>();
+	@ManyToMany(mappedBy="types",fetch=FetchType.EAGER)
+	
+	private List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 	
 
 }

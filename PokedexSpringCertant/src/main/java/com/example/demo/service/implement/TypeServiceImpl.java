@@ -38,13 +38,13 @@ public class TypeServiceImpl implements ITypeService{
 	@Override
 	@Transactional(readOnly=true)
 	public Type encontrarPokemon(Type type) {
-		return typeDAO.findById(type.getTypeId()).orElse(null);
+		return typeDAO.findById(type.getPokemonTypeId()).orElse(null);
 	}
 	
 	@Override
 	@Transactional
 	public List <Type> tiposDeUnPokemon(long typeId){
-		return typeDAO.findByTypeId(typeId);
+		return typeDAO.findByPokemonTypeId(typeId);
 	}
 	
 }

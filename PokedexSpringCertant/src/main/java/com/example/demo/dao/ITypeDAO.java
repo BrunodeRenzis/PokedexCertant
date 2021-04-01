@@ -10,7 +10,7 @@ import com.example.demo.domain.Type;
 
 public interface ITypeDAO extends CrudRepository<Type,Long> {
 
-	List<Type> findByTypeId(long typeId);
+	List<Type> findByPokemonTypeId(long typeId);
 	/*@Query(value="SELECT typeDescription FROM pokemonType INNER JOIN type ON pokemonType.type_id=type.typeId WHERE pokemon_id=?", nativeQuery=true)
 	List<Type> tiposDeUnPokemon(long pokemonId);*/
 }

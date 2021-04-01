@@ -75,7 +75,11 @@ public class Pokemon implements Serializable {
 	@OneToMany(mappedBy="pokemonId")
 	private List<Ability> abilities;
 
-	@Transient
+	
+	@ManyToMany()
+	@JoinTable(name="pokemontype",joinColumns=@JoinColumn(name="pokemonTypeId")
+								 ,inverseJoinColumns=@JoinColumn(name="pokemonId")
+	)
 	private List<Type> types;
 	
 	
