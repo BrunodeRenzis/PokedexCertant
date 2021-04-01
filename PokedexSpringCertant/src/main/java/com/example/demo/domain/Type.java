@@ -41,8 +41,7 @@ public class Type implements Serializable {
 	@Column(name = "typeDescription")
 	private String typeDescription;
 	
-	@ManyToMany(mappedBy="types",fetch=FetchType.EAGER)
-	
+	@ManyToMany(mappedBy="types")
 	private List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 	
 
